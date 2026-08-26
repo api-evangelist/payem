@@ -1,0 +1,94 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/payem-ai-discovery-openapi.json + live JSON-LD responses
+api: Payem AI Discovery API
+note: >-
+  The contract's components.schemas holds exactly one object - Product - and none of the
+  ten operations $refs it. Every response is described inline as a generic object, so the
+  real entity graph had to be read off the live JSON-LD payloads rather than the spec.
+  What follows is that observed graph, marked as such.
+entities:
+- name: Organization
+  source: schema.org Organization, GET /business
+  declared_in_spec: false
+  fields:
+  - name
+  - url
+  - description
+  - sameAs
+  - publisher
+  - isBasedOn
+  - mainEntityOfPage
+  - potentialAction
+  - '@id'
+  identifier: '@id, e.g. https://payem.co#organization'
+- name: OfferCatalog
+  source: schema.org OfferCatalog, GET /products
+  declared_in_spec: false
+  fields:
+  - name
+  - description
+  - provider
+  - numberOfItems
+  - itemListElement
+- name: Product
+  source: components.schemas.Product (declared but unreferenced) + itemListElement of OfferCatalog
+  declared_in_spec: true
+  referenced_by_any_operation: false
+  fields:
+  - id
+  - name
+  - description
+  - image_url
+  - price
+  - currency
+  - brand
+  - features
+  - attributes
+- name: FAQPage
+  source: schema.org FAQPage, GET /faq
+  declared_in_spec: false
+- name: QAPage
+  source: GET /qa/{question-slug}
+  declared_in_spec: false
+  note: Five curated question slugs are hard-coded as distinct paths in the contract rather than parameterised.
+- name: Testimonial
+  source: GET /testimonials
+  declared_in_spec: false
+- name: Category
+  source: GET /categories
+  declared_in_spec: false
+  count_observed: 11
+- name: Dataset
+  source: schema.org Dataset, knowledge.json
+  declared_in_spec: false
+relationships:
+- from: Organization
+  to: OfferCatalog
+  type: has_many
+  via: provider
+- from: OfferCatalog
+  to: Product
+  type: has_many
+  via: itemListElement
+- from: Product
+  to: Category
+  type: belongs_to
+  via: category
+  confidence: medium
+  note: inferred from the /categories operation description "List all 11 product categories"; not declared
+- from: Organization
+  to: FAQPage
+  type: has_many
+  via: mainEntity
+- from: Organization
+  to: Testimonial
+  type: has_many
+  via: review
+  confidence: medium
+id_prefixes: []
+product_domain_note: >-
+  This is a content graph, not PayEm's business domain. PayEm's real entities - request,
+  approval, purchase order, invoice, vendor, virtual card, budget, subsidiary,
+  reconciliation, journal entry - appear nowhere in any published contract and are not
+  modelled here. Deriving them from marketing pages would be fabrication.

@@ -1,0 +1,26 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.payem.co/
+plan_count: 0
+plans: []
+pricing_page: null
+note: >-
+  PayEm publishes no pricing page and no plan tiers. https://www.payem.co/pricing returns
+  404, there is no /pricing entry anywhere in https://www.payem.co/sitemap.xml, and no
+  navigation item links to one. Every commercial path on the site terminates in a demo
+  booking or a sales conversation - /lp/book-demo, /lp/personalized-demo,
+  /lp/set-your-demo-time, /lp/roi-calculator - and the FAQ answers integration questions
+  with "For more details talk to our team." A set of landing pages markets AP automation
+  as free of charge for SMBs (/lp/ap-free-of-charge, /lp/ap-free-of-charge-for-smb) and
+  the LightSite ai-plugin manifest generated for PayEm reports a price range of min 0 to
+  max 5000, but neither is a published plan with a named tier, a billing period or an
+  included quota, so neither is recorded as one.
+evidence:
+- url: https://www.payem.co/pricing
+  status: 404
+- url: https://www.payem.co/sitemap.xml
+  status: 200
+  note: 262 URLs, no pricing page
+- url: https://www.payem.co/lp/ap-free-of-charge
+  status: 200
+  note: marketing landing page, no tier structure

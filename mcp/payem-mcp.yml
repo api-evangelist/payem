@@ -1,0 +1,70 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/payem-ai-discovery-openapi.json
+status: candidate
+name: payem
+summary: >-
+  No MCP server exists for PayEm. Nobody ships one - not PayEm, and not the LightSite
+  AI-discovery service that operates PayEm's only public contract. The tools below are a
+  DERIVED candidate set, one per documented OpenAPI operation, recorded so the surface can
+  be compared against a real server if one ever appears. They are not callable as MCP today.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: derived
+probes:
+- url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/mcp?domain=payem.co
+  status: 404
+  note: 'body: {"error":"Public endpoint not found"} with an enumerated endpoint list that contains no MCP path'
+- url: https://www.payem.co/.well-known/agent-card.json
+  status: 404
+- url: https://www.payem.co/.well-known/agent.json
+  status: 404
+- url: https://app.payemcard.com/.well-known/agent-card.json
+  status: 200
+  note: SPA catch-all shell, not an agent card
+- registry: npm
+  query: payem
+  result: no MCP package
+tools:
+- name: get_business
+  rest: getBusiness
+  description: Get the Payem organization profile as schema.org JSON-LD.
+  auth: none
+- name: list_products
+  rest: null
+  description: List Payem's product catalog as a schema.org OfferCatalog.
+  auth: none
+  note: the /products endpoint is live but is not declared in the OpenAPI document
+- name: list_categories
+  rest: getCategories
+  description: List Payem's 11 product categories.
+  auth: none
+- name: get_faq
+  rest: getFaqs
+  description: Get Payem's FAQ as a schema.org FAQPage.
+  auth: none
+- name: list_testimonials
+  rest: getTestimonials
+  description: Get published customer testimonials for Payem.
+  auth: none
+- name: search_content
+  rest: searchIndexedContent
+  description: Semantic search across Payem's indexed content; returns ranked passages with source URLs.
+  auth: none
+  inputSchema_source: openapi parameters domain (required), query (required), limit
+- name: get_qa
+  rest: 5 hard-coded getQA_* operations
+  description: Retrieve one of five curated question-and-answer pages.
+  auth: none
+  note: >-
+    The contract hard-codes five long question slugs as five separate paths rather than a
+    single parameterised /qa/{question-slug}; a real MCP server would collapse them.
+related:
+  skills_manifest: well-known/payem-lightsite-skills.json
+  note: >-
+    LightSite publishes a skills.json for payem.co whose four tools each carry a null
+    mcp_ref - the vendor's own manifest confirms no MCP binding exists.

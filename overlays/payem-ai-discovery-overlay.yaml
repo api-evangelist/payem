@@ -1,0 +1,82 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Payem AI Discovery API
+  version: 1.0.0
+extends: ../openapi/payem-ai-discovery-openapi.json
+x-generated: '2026-08-26'
+x-method: generated
+x-source: openapi/payem-ai-discovery-openapi.json + live probes recorded in this repo
+x-note: >-
+  Captures what this pipeline learned that the published contract does not state. The
+  original document is never mutated; apply this overlay to get the enriched view.
+actions:
+- target: $.info
+  description: Record the operator, the tenancy model and what this API is not.
+  update:
+    x-operator:
+      name: LightSite.ai
+      host: api.llm-discovery-api.com
+      relationship: >-
+        Third-party AI-discovery service operating this contract on PayEm's behalf. PayEm
+        opted in from its own edge - www.payem.co/robots.txt names /.well-known/openapi.json
+        and /.well-known/ai-plugin.json, and both 308-redirect to this host. The skills
+        manifest records confidence_source "owner_provided".
+      origin_verified_header: 'x-lightsite-origin-verified: false'
+    x-not-the-product-api: >-
+      This contract exposes PayEm marketing and knowledge content only. It cannot issue a
+      card, create a request, post an invoice, pay a vendor or read a ledger. PayEm
+      publishes no public product API.
+- target: $.servers[0]
+  description: Note that the server is a shared multi-tenant host keyed on a required domain parameter.
+  update:
+    x-multi-tenant: true
+    x-tenant-parameter: domain
+    x-tenant-value: payem.co
+- target: $.paths
+  description: Record the public endpoints the contract omits but the service advertises.
+  update:
+    x-undocumented-endpoints:
+    - path: /products
+      note: live and returning a schema.org OfferCatalog with 11 items; absent from paths[]
+    - path: /skills.json
+    - path: /.well-known/skills.json
+    - path: /.well-known/ai-catalog.json
+    - path: /.well-known/ai-manifest.json
+    - path: /ai/v1/company.json
+    - path: /ai/v1/status.json
+    - path: /knowledge.json
+    - path: /pages/{page_id}
+    - path: /ai-manifest
+    x-deprecated-endpoints:
+    - path: /query
+      replacement: /qa/{question-slug}
+    - path: /prompts/{number}
+      replacement: /qa/{question-slug}
+- target: $
+  description: Attach the runtime semantics observed on the wire but absent from the contract.
+  update:
+    x-rate-limits:
+      per_endpoint:
+      - endpoints: [/business, /products, /categories]
+        limit: 60
+        window: 1m
+      - endpoints: [/search]
+        limit: 30
+        window: 1m
+      headers_returned: none
+      source: /.well-known/skills.json
+    x-caching:
+      cache_control: 'public, max-age=300, must-revalidate'
+      etag: weak
+      conditional_requests: true
+    x-error-envelope:
+      shape: '{error, requested_endpoint, available_endpoints}'
+      rfc9457: false
+    x-reversibility: na
+    x-idempotency: na
+    x-write-surface: false
+- target: $.components.schemas.Product
+  description: Flag that the only declared schema is orphaned.
+  update:
+    x-orphaned: true
+    x-note: Declared in components.schemas but not referenced by any operation in the document.

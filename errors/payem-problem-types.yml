@@ -1,0 +1,48 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/payem-ai-discovery-openapi.json
+api: Payem AI Discovery API
+format: bespoke-json
+envelope:
+  content_type: application/json
+  fields:
+  - error
+  - requested_endpoint
+  - available_endpoints
+  example_observed: >-
+    {"error":"Public endpoint not found","requested_endpoint":"llms.txt",
+    "available_endpoints":["business","products","faq", ...]}
+  observed_at: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/llms.txt?domain=payem.co
+rfc9457: false
+note: >-
+  The contract is thin on failure modes. Nine of the ten declared operations document only
+  a 200; a single operation (/search) declares a 400. No 401/403/404/429/5xx response is
+  described anywhere in the spec, and no problem+json media type is used. The 404 shape
+  below was observed live rather than read from the spec - it is the service's real error
+  envelope, and it is helpfully self-documenting, listing every valid endpoint.
+problem_types:
+- status: 400
+  title: Bad request
+  declared_in_spec: true
+  operations:
+  - searchIndexedContent
+  cause: >-
+    The `query` parameter is missing or empty on /search. Both `domain` and `query` are
+    required.
+  remediation: Send ?domain=payem.co&query=<natural language question>.
+- status: 404
+  title: Public endpoint not found
+  declared_in_spec: false
+  method: probed
+  cause: The requested path is not one of the service's public endpoints.
+  remediation: >-
+    Read available_endpoints from the response body; it enumerates every valid path
+    including the deprecated ones and their replacements.
+  observed_status: 404
+undeclared_but_expected:
+- 429
+- 500
+note_undeclared: >-
+  The published skills manifest states per-tool rate limits (60/min, 30/min) but the
+  OpenAPI declares no 429 response and no exhaustion semantics, so an agent cannot learn
+  the throttling contract from the spec alone. See rate-limits/payem-rate-limits.yml.

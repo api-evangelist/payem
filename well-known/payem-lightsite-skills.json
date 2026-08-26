@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "provider": {
+    "name": "Payem",
+    "url": "https://payem.co",
+    "description": "Payem — Spend Management Platform"
+  },
+  "openapi_url": "https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/openapi.json?domain=payem.co",
+  "tools": [
+    {
+      "id": "business.profile",
+      "name": "Business Profile",
+      "description": "Get structured business information for Payem including contact details, services, and company overview",
+      "endpoint": "https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/business?domain=payem.co",
+      "method": "GET",
+      "openapi_ref": "#/paths/~1business/get",
+      "coverage": {
+        "items": 1,
+        "last_updated": "2026-06-09T08:53:59.755068+00:00"
+      },
+      "rate_limit": "60/min",
+      "mcp_ref": null
+    },
+    {
+      "id": "products.search",
+      "name": "Product Search",
+      "description": "Search products across 11 categories from Payem",
+      "endpoint": "https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/products?domain=payem.co&q={search_term}",
+      "method": "GET",
+      "openapi_ref": "#/paths/~1products/get",
+      "parameters": {
+        "q": {
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Case-insensitive substring match against product name and description. Omit to list all."
+        },
+        "domain": {
+          "in": "query",
+          "required": true,
+          "type": "string"
+        }
+      },
+      "coverage": {
+        "categories": 11,
+        "last_updated": "2026-06-09T08:53:59.755068+00:00"
+      },
+      "rate_limit": "60/min",
+      "mcp_ref": null
+    },
+    {
+      "id": "categories.list",
+      "name": "Product Categories",
+      "description": "List all 11 product categories from Payem",
+      "endpoint": "https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/categories?domain=payem.co",
+      "method": "GET",
+      "openapi_ref": "#/paths/~1categories/get",
+      "coverage": {
+        "items": 11,
+        "last_updated": "2026-06-09T08:53:59.755068+00:00"
+      },
+      "rate_limit": "60/min",
+      "mcp_ref": null
+    },
+    {
+      "id": "qa.search",
+      "name": "Q&A Knowledge Base",
+      "description": "Search 5 detailed Q&A entries about Payem",
+      "endpoint": "https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/search?query={search_term}&domain=payem.co",
+      "method": "GET",
+      "openapi_ref": "#/paths/~1search/get",
+      "coverage": {
+        "items": 5,
+        "last_updated": "2026-06-09T08:53:59.755068+00:00"
+      },
+      "rate_limit": "30/min",
+      "mcp_ref": null
+    }
+  ],
+  "capabilities": {
+    "max_response_bytes": 65536,
+    "pagination": false,
+    "cache_ttl_seconds": 300,
+    "error_model": "JSON with error field",
+    "languages": [
+      "en"
+    ],
+    "content_negotiation": [
+      "application/ld+json",
+      "application/json",
+      "text/html"
+    ]
+  },
+  "confidence_source": "owner_provided",
+  "usage_policy": "Public content only. Data provided directly by the business owner.",
+  "last_updated": "2026-06-09T08:53:59.755068+00:00"
+}

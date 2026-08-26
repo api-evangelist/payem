@@ -1,0 +1,61 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.payem.co/ + openapi/payem-ai-discovery-openapi.json
+api: Payem AI Discovery API
+versioning:
+  scheme: semver-in-document
+  current_version: v2.2.4
+  location: info.version of the OpenAPI document
+  in_url: false
+  detail: >-
+    No version segment, header or media-type parameter. A consumer cannot pin a version;
+    the URL always serves whatever the vendor last published.
+deprecation_policy:
+  published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  detail: >-
+    No deprecation policy is published for either surface. The AI-discovery service does
+    signal deprecation informally - a 404 body lists deprecated_endpoints, currently
+    "query (use qa/{question-slug} instead)" and "prompts/{number} (use qa/{question-slug}
+    instead)" - but that is an error payload, not a policy, and it carries no dates and no
+    notice period. No Deprecation pointer is emitted.
+  observed_deprecations:
+  - endpoint: /query
+    replacement: /qa/{question-slug}
+    source: 404 response body of the public endpoint index
+  - endpoint: /prompts/{number}
+    replacement: /qa/{question-slug}
+    source: 404 response body of the public endpoint index
+deprecated_operations_in_spec: []
+status_page:
+  published: false
+  detail: >-
+    PayEm operates no status page. status.payem.co does not resolve (NXDOMAIN), no
+    status.io/statuspage.io/instatus tenant was found, and no status link appears on
+    payem.co or in its sitemap. The AI-discovery vendor exposes an ai/v1/status.json for
+    payem.co, but it reports feature flags for the discovery service ("status":"active",
+    discovery_enabled, semantic_search) - it is not a PayEm platform status page. No
+    StatusPage pointer is emitted.
+  probes:
+  - url: https://status.payem.co/
+    status: NXDOMAIN
+sla:
+  published: false
+  detail: No SLA or uptime commitment is published on any public page.
+support:
+  channel: https://www.payem.co/contact
+  help_center: https://www.payem.co/faq
+freshness:
+  content_last_updated: '2026-06-09T08:53:59Z'
+  source: skills.json last_updated and the Last-Modified header on /business
+  catalog_last_updated: '2026-08-26T17:30:21Z'
+  source_catalog: ai-catalog.json entries[].updatedAt
+evidence:
+- url: https://status.payem.co/
+  status: 0
+  note: NXDOMAIN
+- url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/nope?domain=payem.co
+  status: 404
+  note: response body enumerates available_endpoints and deprecated_endpoints

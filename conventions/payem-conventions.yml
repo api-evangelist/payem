@@ -1,0 +1,95 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/payem-ai-discovery-openapi.json + live responses from api.llm-discovery-api.com
+api: Payem AI Discovery API
+auth:
+  style: none
+  detail: no securitySchemes; every operation is anonymous. See authentication/payem-authentication.yml
+tenancy:
+  required_query_param: domain
+  value: payem.co
+  detail: >-
+    The service is multi-tenant and shared across every LightSite customer. `domain` is
+    the tenant selector on every path; omitting it does not return PayEm's content.
+pagination:
+  supported: false
+  detail: >-
+    skills.json declares pagination false. No page, cursor or limit-offset parameters
+    exist anywhere except a `limit` on /search.
+content_negotiation:
+  declared:
+  - application/ld+json
+  - application/json
+  - text/html
+  default_observed: application/ld+json
+  detail: >-
+    Responses are schema.org JSON-LD (@context/@graph), not plain resource JSON, which is
+    unusual for an OpenAPI-described surface and is the clearest signal of what this API
+    is for - AI indexing, not transactions.
+versioning:
+  scheme: info.version
+  current: v2.2.4
+  in_path: false
+  in_header: false
+  detail: >-
+    Version is carried only in the OpenAPI document. There is no version segment in the
+    path, no version header, and no deprecation signalling on the wire. The spec does
+    carry an x-ai-discovery.last_updated field and the responses carry Last-Modified.
+request_id:
+  header: sb-request-id
+  also:
+  - cf-ray
+  - x-deno-execution-id
+  detail: Supabase edge and Cloudflare tracing identifiers; not documented as a support contract.
+caching:
+  cache_control: 'public, max-age=300, must-revalidate'
+  etag: weak
+  last_modified: true
+  conditional_requests: supported
+error_envelope:
+  shape: '{error, requested_endpoint, available_endpoints}'
+  rfc9457: false
+  detail: See errors/payem-problem-types.yml
+rate_limit_signaling:
+  headers: none
+  detail: >-
+    Limits are published in skills.json but never signalled on a response.
+    See rate-limits/payem-rate-limits.yml
+idempotency:
+  supported: na
+  reason: >-
+    The API is entirely read-only - ten GET operations, no POST, PUT, PATCH or DELETE
+    anywhere in the contract - so there is no unsafe request to make idempotent. No
+    Idempotency-Key header is documented or accepted. This is `na`, not a gap.
+dry_run_mode:
+  supported: na
+  reason: No write surface to rehearse.
+reversibility:
+  grade: na
+  reason: >-
+    There is no write surface, therefore nothing to reverse. Every operation in the
+    contract is a GET returning schema.org content; there is no create, no cancel, no
+    refund, no void, no delete and no state an agent could change and then need to take
+    back. Recording this as `na` rather than 0 is deliberate - the API is not missing a
+    reversal path, it has no action that would need one.
+  write_surface: false
+  operations_by_method:
+    get: 10
+    post: 0
+    put: 0
+    patch: 0
+    delete: 0
+  reversal_operations: []
+  windows: []
+  product_api_note: >-
+    PayEm's actual product does have consequential write actions - issuing and freezing
+    virtual cards, approving requests, scheduling payments, reversing reconciliations -
+    and its marketing describes approval workflows and an audit trail around them. None of
+    that is exposed through any public contract, so no reversal window can be recorded
+    here. Asserting one from the marketing copy would be inventing a window, which is the
+    one error in this artifact that could cost a user real money.
+cross_links:
+  errors: errors/payem-problem-types.yml
+  lifecycle: lifecycle/payem-lifecycle.yml
+  authentication: authentication/payem-authentication.yml
+  rate_limits: rate-limits/payem-rate-limits.yml

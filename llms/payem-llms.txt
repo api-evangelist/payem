@@ -1,0 +1,94 @@
+# Payem
+
+> PayEm is a global spend management and procurement platform that automates the
+> request-to-reconciliation process for finance, procurement, HR and operations teams.
+> Founded 2019; San Francisco and Tel Aviv. SOC 1 and SOC 2 Type II attested (EY).
+
+IMPORTANT FOR AGENTS: PayEm publishes no public product API. There is no developer
+portal, no API reference, no SDK, no CLI, no webhook catalog, no MCP server and no agent
+card. Integration with PayEm is via its own pre-built ERP/HRIS connectors, arranged
+through a sales conversation. The only machine-readable contract reachable from payem.co
+is an AI-discovery content API operated by LightSite.ai on PayEm's behalf; it serves
+marketing and knowledge content and cannot perform any action in the PayEm product.
+
+## Machine-readable contracts
+
+- [OpenAPI 3.1 (AI Discovery)](https://www.payem.co/.well-known/openapi.json): 308 to
+  api.llm-discovery-api.com; 10 read-only GET operations returning schema.org JSON-LD.
+  Anonymous. Requires ?domain=payem.co.
+- [AI plugin manifest](https://www.payem.co/.well-known/ai-plugin.json): 308 to the same
+  vendor host.
+- [Skills manifest](https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/.well-known/skills.json?domain=payem.co):
+  four capability hints with openapi_ref pointers and published rate limits.
+- [AI catalog](https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/.well-known/ai-catalog.json?domain=payem.co):
+  AIR 1.0 catalog listing the contract, the skills manifest and the search endpoint.
+- Rate limits: 60/min on /business, /products and /categories; 30/min on /search. No
+  rate-limit headers are returned.
+
+## Product
+
+- [Virtual corporate cards](https://www.payem.co/product/virtual-corporate-cards)
+- [Physical corporate cards](https://www.payem.co/product/physical-corporate-cards)
+- [American Express card integration](https://www.payem.co/american-express-card-integration)
+- [Accounts payable automation](https://www.payem.co/product/accounts-payable-automation)
+- [AI invoice processing](https://www.payem.co/product/invoice-processing)
+- [Procurement](https://www.payem.co/product/procurement)
+- [Intake requests](https://www.payem.co/product/intake-requests)
+- [Agile approval workflows](https://www.payem.co/product/agile-workflows)
+- [Budget control](https://www.payem.co/product/budget-control)
+- [Expense tracking](https://www.payem.co/product/expense-tracking)
+- [Vendor onboarding](https://www.payem.co/product/vendor-onboarding)
+- [Real-time reconciliation](https://www.payem.co/product/real-time-reconciliation)
+- [Multi-subsidiary management](https://www.payem.co/product/multi-subsidiary-management)
+- [Digital wallet](https://www.payem.co/product/digital-wallet)
+- [Audit trail](https://www.payem.co/product/audit-trail)
+- [Insights dashboard](https://www.payem.co/product/insights-dashboard)
+
+## Integrations (native connectors, not a public API)
+
+- [All integrations](https://www.payem.co/product/integrations)
+- [NetSuite](https://www.payem.co/product/integrations/netsuite)
+- [QuickBooks Online](https://www.payem.co/product/integrations/quickbooks)
+- [Xero](https://www.payem.co/product/integrations/xero)
+- [Priority ERP](https://www.payem.co/product/integrations/priority-erp)
+- [HRIS](https://www.payem.co/product/integrations/hris)
+- [TravelPerk](https://www.payem.co/product/integrations/travelperk-integration)
+- [Multi-instance ERP](https://www.payem.co/solutions/multi-instance-erp)
+
+## Security and compliance
+
+- [Security & compliance](https://www.payem.co/legal/security-and-compliance): MFA, SAML
+  SSO, AES-256 at rest, in-field encryption, least privilege with audit logging,
+  continuous automated penetration testing, GDPR and CCPA.
+- [SOC 2 Type II](https://www.payem.co/legal/soc-2) — annually audited by EY.
+- [SOC 1 Type II](https://www.payem.co/legal/soc-1-type-ii-compliant)
+- [Trust center](https://security.payem.co/) — SafeBase portal; returns a bot challenge to
+  automated clients.
+- No security.txt, no published vulnerability disclosure policy, no bug bounty.
+
+## Company
+
+- [Home](https://www.payem.co/)
+- [About](https://www.payem.co/company)
+- [Blog](https://www.payem.co/blog)
+- [FAQ](https://www.payem.co/faq)
+- [Case studies](https://www.payem.co/case-studies)
+- [Glossary](https://www.payem.co/glossary)
+- [Partners](https://www.payem.co/partners)
+- [Press](https://www.payem.co/press)
+- [Careers](https://www.payem.co/careers)
+- [Contact](https://www.payem.co/contact)
+- [Log in](https://app.payemcard.com/login)
+- [Book a demo](https://www.payem.co/lp/personalized-demo)
+- [Terms of service](https://www.payem.co/legal/terms-of-service)
+- [Privacy policy](https://www.payem.co/legal/privacy-policy)
+
+## Not available
+
+- Pricing page (https://www.payem.co/pricing returns 404; all pricing is sales-led)
+- Status page (status.payem.co does not resolve)
+- Changelog or release notes
+- Public GitHub organization
+- Client libraries on npm, PyPI, RubyGems, crates.io, NuGet, Maven Central or Go modules
+- Postman collection or workspace
+- Roadmap

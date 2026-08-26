@@ -1,0 +1,23 @@
+generated: '2026-08-26'
+method: searched
+source: registry searches across npm, PyPI, RubyGems, crates.io, NuGet, Maven Central, pkg.go.dev and GitHub
+package_count: 0
+packages: []
+note: >-
+  PayEm publishes no client libraries. No first-party package exists on any registry
+  probed, PayEm operates no GitHub organization (github.com/payem is an unrelated
+  individual account, and a GitHub user/org search for "payem" returns no PayEm-owned
+  namespace), and the site carries no SDK, CLI or SourceCode link to derive a candidate
+  from. This is consistent with the rest of the profile: PayEm ships pre-built native ERP
+  and HRIS connectors, not a developer surface, so there is nothing for an SDK to wrap.
+  No SDKs pointer is emitted.
+registries_probed:
+- registry: npm
+  query: payem
+  result: no first-party package
+- registry: pypi
+  package: payem
+  status: 404
+- registry: github
+  query: payem
+  result: no PayEm-owned organization

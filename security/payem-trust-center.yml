@@ -1,0 +1,48 @@
+generated: '2026-08-26'
+method: probed
+source: https://security.payem.co/
+url: https://security.payem.co/
+trust_center:
+  vendor: SafeBase
+  host: security.payem.co
+  resolves_to: payem.portals.safebase.io
+  status: 403
+  reachable: false
+  note: >-
+    PayEm operates a dedicated SafeBase trust portal - security.payem.co CNAMEs to
+    payem.portals.safebase.io, a per-tenant SafeBase hostname, so the portal genuinely
+    exists. Its contents could not be read from this run: the portal, the SafeBase tenant
+    host and the SafeBase public API all answered HTTP 403 with a Cloudflare "Just a
+    moment..." interstitial. A bot challenge is not a dead page; the portal is recorded as
+    present but unread.
+certifications:
+- name: SOC 1 Type II
+  source: https://www.payem.co/legal/security-and-compliance
+  evidence: >-
+    "PayEm is committed to providing our customers with the highest standard of financial
+    data security and has attained both SOC 1 and SOC 2 Type 2 attestation."
+- name: SOC 2 Type II
+  auditor: EY
+  source: https://www.payem.co/legal/security-and-compliance
+  evidence: >-
+    "We are annually audited by third party accounting firm EY, to meet and exceed the
+    standards of SOC 2 Type II."
+- name: GDPR
+  source: https://www.payem.co/legal/security-and-compliance
+- name: CCPA
+  source: https://www.payem.co/legal/security-and-compliance
+corrections:
+- '2026-08-26: an earlier automated pass recorded ISO 27001 and PCI DSS for this provider.
+  Neither claim could be substantiated - security.payem.co returns a bot challenge, and
+  neither standard is named anywhere on PayEm''s own public security and compliance page.
+  Both were removed rather than left as unsourced assertions.'
+evidence:
+- url: https://security.payem.co/
+  status: 403
+  note: Cloudflare interstitial; DNS CNAME payem.portals.safebase.io confirms a real SafeBase tenant
+- url: https://www.payem.co/legal/security-and-compliance
+  status: 200
+- url: https://www.payem.co/legal/soc-2
+  status: 200
+- url: https://www.payem.co/legal/soc-1-type-ii-compliant
+  status: 200

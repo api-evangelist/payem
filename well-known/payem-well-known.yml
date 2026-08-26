@@ -1,0 +1,90 @@
+generated: '2026-08-26'
+method: searched
+source: live probes of every host in apis.yml plus the OpenAPI servers[] host
+note: >-
+  PayEm's own robots.txt at https://www.payem.co/robots.txt explicitly allows
+  /.well-known/ai-plugin.json, /.well-known/openapi.json and /ai-sitemap.xml for GPTBot,
+  ChatGPT-User, OAI-SearchBot, Google-Extended, Googlebot, ClaudeBot, Claude-Web and
+  anthropic-ai. Those three paths 308-redirect off payem.co to LightSite.ai's shared
+  AI-discovery service (api.llm-discovery-api.com/functions/v1/llm-discovery/public,
+  keyed on ?domain=payem.co). The redirect is PayEm's own edge configuration, so the
+  documents are served under PayEm's authority even though the origin is a vendor.
+  Everything else under /.well-known/ on payem.co returns a real Next.js 404 page, not an
+  SPA catch-all - the 404 bodies carry id="__next_error__" and the status code is 404, so
+  the negatives below are genuine negatives.
+hit_count: 2
+hosts:
+- host: https://www.payem.co
+  documents:
+  - path: /.well-known/openapi.json
+    status: 200
+    file: payem-openapi.json
+    note: 308 to api.llm-discovery-api.com/.../openapi.json?domain=payem.co, then 200 application/json, OpenAPI 3.1.0
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: payem-ai-plugin.json
+    note: 308 to api.llm-discovery-api.com/.../ai-plugin.json?domain=payem.co, then 200 application/json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/skills.json
+    status: 404
+  - path: /.well-known/ai-manifest.json
+    status: 404
+  - path: /.well-known/ai-catalog.json
+    status: 404
+  - path: /.well-known/llms.txt
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /.well-known/ai.txt
+    status: 404
+- host: https://app.payemcard.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    note: nginx 403, not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: >-
+      SPA catch-all. app.payemcard.com returns the identical 6,342-byte Angular shell for
+      every path probed, including /openapi.json, /swagger.json, /api-docs, /docs,
+      /redoc, /graphql and /.well-known/agent-card.json. Not a document; no file saved.
+  - path: /.well-known/agent-card.json
+    status: 200
+    note: same 6,342-byte SPA shell as the soft-404 control below; not an agent card
+  soft_404_control:
+    path: /openapi.json
+    status: 200
+    bytes: 6342
+    identical_to_index: true
+- host: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  documents:
+  - path: /.well-known/ai-catalog.json
+    status: 200
+    file: payem-ai-catalog.json
+    note: >-
+      AIR 1.0 catalog for payem.co listing three entries - the OpenAPI contract, the
+      skills manifest and the semantic search endpoint. Served by the vendor host only;
+      https://www.payem.co/.well-known/ai-catalog.json returns 404.
+  - path: /.well-known/skills.json
+    status: 200
+    file: payem-lightsite-skills.json
+    note: >-
+      LightSite capability manifest, schema_version 1.0, confidence_source
+      owner_provided, four tools each carrying an openapi_ref JSON Pointer into the
+      OpenAPI above and a published rate limit. Vendor host only;
+      https://www.payem.co/.well-known/skills.json returns 404. NOT wired as an
+      AgentSkill pointer - PayEm's own host does not serve it and PayEm did not author it.
+  - path: /.well-known/ai-manifest.json
+    status: 200
+    note: 1,003-byte plugin manifest duplicating ai-plugin.json; not separately saved

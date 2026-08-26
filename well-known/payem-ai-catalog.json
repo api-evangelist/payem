@@ -1,0 +1,71 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Payem",
+    "identifier": "payem.co",
+    "documentationUrl": "https://payem.co",
+    "trustManifest": {
+      "identity": "https://payem.co",
+      "identityType": "https"
+    }
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:payem.co:openapi:business-knowledge",
+      "displayName": "Payem Business Knowledge API",
+      "type": "application/vnd.oai.openapi+json;version=3.1",
+      "url": "https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/openapi.json?domain=payem.co",
+      "description": "OpenAPI 3.1 contract for Payem: business profile, products, FAQ, testimonials, categories, semantic search, and Q&A endpoints.",
+      "capabilities": [
+        "business.profile",
+        "products.search",
+        "faq.answer",
+        "qa.search",
+        "testimonials.list",
+        "categories.list"
+      ],
+      "representativeQueries": [
+        "What does Payem do?",
+        "What products or services does Payem offer?",
+        "How does Payem compare to competitors?"
+      ],
+      "updatedAt": "2026-08-26T17:30:21.782Z",
+      "trustManifest": {
+        "identity": "https://payem.co",
+        "identityType": "https"
+      }
+    },
+    {
+      "identifier": "urn:air:payem.co:skills:capability-menu",
+      "displayName": "Payem Skills Manifest",
+      "type": "application/json",
+      "url": "https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/skills.json?domain=payem.co",
+      "description": "Capability hints with openapi_ref pointers so agents can map skills to concrete API calls.",
+      "capabilities": [
+        "skills.discovery"
+      ],
+      "updatedAt": "2026-08-26T17:30:21.782Z"
+    },
+    {
+      "identifier": "urn:air:payem.co:search:semantic",
+      "displayName": "Payem Semantic Search",
+      "type": "application/json",
+      "url": "https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/search?domain=payem.co",
+      "description": "Semantic search over Payem's indexed content. Pass ?q= or ?query= with a natural-language question; returns ranked passages with source URLs.",
+      "capabilities": [
+        "search.semantic",
+        "qa.search"
+      ],
+      "representativeQueries": [
+        "Does Payem support [feature]?",
+        "How do I [task] with Payem?",
+        "What is Payem's pricing for [use case]?"
+      ],
+      "updatedAt": "2026-08-26T17:30:21.782Z",
+      "trustManifest": {
+        "identity": "https://payem.co",
+        "identityType": "https"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+generated: '2026-08-26'
+method: searched
+source: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/.well-known/skills.json?domain=payem.co
+api: Payem AI Discovery API
+limit_count: 2
+rate_limits:
+- scope: per-endpoint
+  endpoints:
+  - /business
+  - /products
+  - /categories
+  limit: 60
+  window: 1m
+  burst: null
+  source: skills.json tools[].rate_limit "60/min"
+- scope: per-endpoint
+  endpoints:
+  - /search
+  limit: 30
+  window: 1m
+  burst: null
+  source: skills.json tools[].rate_limit "30/min"
+response_headers:
+  published: []
+  observed: []
+  note: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header was returned on any successful
+    call made during this pass. The service does return endpoint-load-metrics
+    (application_utilization, named_metrics.queue_depth) and Cloudflare cf-ray/cf-cache-status,
+    none of which is a rate-limit signal an agent can act on.
+exhaustion_status: unknown
+caching:
+  cache_control: 'public, max-age=300, must-revalidate'
+  cache_ttl_seconds: 300
+  etag: weak
+  last_modified: true
+  note: >-
+    Caching is the only backpressure signal actually on the wire; skills.json also
+    declares cache_ttl_seconds 300 and max_response_bytes 65536, and pagination false.
+product_api:
+  status: not-published
+  note: >-
+    PayEm's own security page states that the platform "enforce[s] rate limiting to
+    prevent brute-force attacks", but that is an application control with no published
+    numbers and no developer-facing contract.
+  source: https://www.payem.co/legal/security-and-compliance
+evidence:
+- url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/business?domain=payem.co
+  status: 200
+  note: response headers captured; no rate-limit header present

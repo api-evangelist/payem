@@ -1,0 +1,34 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/payem-ai-discovery-openapi.json
+api: Payem AI Discovery API
+summary: >-
+  The only machine-readable PayEm contract declares no security schemes and requires no
+  credentials. components.securitySchemes is absent, there is no top-level security[]
+  block, and every operation was called anonymously during this pass and returned 200.
+security_schemes: []
+model: none
+anonymous: true
+verified:
+- url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/business?domain=payem.co
+  status: 200
+  auth_sent: none
+- url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/products?domain=payem.co
+  status: 200
+  auth_sent: none
+product_api:
+  status: not-published
+  note: >-
+    PayEm's spend-management product has no public authentication documentation. There is
+    no developer portal, no API-key page and no OAuth surface. What PayEm does document,
+    on its own security page, is end-user authentication into the application: mandatory
+    multi-factor authentication and SAML SSO through an external identity provider such
+    as Google or Okta. That is application sign-in, not API authentication, and it is
+    recorded here so a reader does not mistake one for the other.
+  source: https://www.payem.co/legal/security-and-compliance
+oauth_scopes: na
+notes:
+- The vendor host echoes CORS access-control-allow-headers listing authorization and apikey,
+  but no operation requires either and none is documented.
+- A required `domain` query parameter (payem.co) acts as the tenant selector on the shared
+  LightSite service. It is a routing key, not a credential.

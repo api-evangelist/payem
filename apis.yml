@@ -1,23 +1,120 @@
 aid: payem
 name: Payem
-description: 'Payem is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  PayEm is a global spend management and procurement platform that automates the
+  request-to-reconciliation process for finance, procurement, HR and operations teams.
+  The product covers intake requests and agile approval workflows, virtual and physical
+  corporate cards (including an American Express program), AP automation with AI/OCR
+  invoice processing, purchase-order creation and matching, vendor onboarding, budget
+  control, expense tracking, multi-subsidiary management, cross-border payments,
+  real-time reconciliation and an audit trail, with native connectors into NetSuite,
+  QuickBooks Online, Priority ERP, Xero, HRIS systems, TravelPerk and Slack. Founded in
+  2019 and operating from San Francisco and Tel Aviv, PayEm holds SOC 1 and SOC 2 Type II
+  attestations audited by EY. PayEm publishes no public developer program - no developer
+  portal, API reference, SDK, webhook catalog or machine-readable product contract is
+  reachable without a sales conversation. The only machine-readable contract served from
+  payem.co is an AI-discovery content API operated on PayEm's behalf by LightSite.ai,
+  linked from PayEm's own robots.txt and reachable via a 308 from
+  https://www.payem.co/.well-known/openapi.json.
 url: https://raw.githubusercontent.com/api-evangelist/payem/refs/heads/main/apis.yml
+image: https://www.payem.co/icon.svg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
-apis: []
+- Spend Management
+- Procurement
+- Accounts Payable
+- Corporate Cards
+- Expense Management
+- Financial Operations
+- Invoice Processing
+- FinTech
+- ERP Integration
+apis:
+- name: Payem AI Discovery API
+  description: >-
+    A read-only, unauthenticated AI-discovery content API published for Payem by
+    LightSite.ai. It exposes Payem's own marketing and knowledge content - business
+    profile, product catalog, categories, testimonials, FAQ, curated Q&A pages and a
+    semantic search endpoint - as OpenAPI 3.1 operations returning schema.org JSON-LD.
+    This is NOT the PayEm product API: it cannot issue a card, create a request, post an
+    invoice or read a ledger. PayEm ships no public product API.
+  humanURL: https://www.payem.co/
+  baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  tags:
+  - AI Discovery
+  - Content
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/payem-ai-discovery-openapi.json
+  - type: JSONLD
+    url: json-ld/payem-organization.jsonld
+  - type: Authentication
+    url: authentication/payem-authentication.yml
+  - type: ErrorCatalog
+    url: errors/payem-problem-types.yml
+  - type: Conventions
+    url: conventions/payem-conventions.yml
+  - type: DataModel
+    url: data-model/payem-data-model.yml
+  - type: Overlay
+    url: overlays/payem-ai-discovery-overlay.yaml
+  - type: RateLimits
+    url: rate-limits/payem-rate-limits.yml
+  - type: MCPServer
+    url: mcp/payem-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/payem-tool-crosswalk.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TrustCenter
+  url: security/payem-trust-center.yml
 - type: Website
-  url: https://forgeglobal.com/payem_stock/
+  url: https://www.payem.co/
+- type: Blog
+  url: https://www.payem.co/blog
+- type: Support
+  url: https://www.payem.co/contact
+- type: HelpCenter
+  url: https://www.payem.co/faq
+- type: Login
+  url: https://app.payemcard.com/login
+- type: SignUp
+  url: https://www.payem.co/lp/personalized-demo
+- type: TermsOfService
+  url: https://www.payem.co/legal/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.payem.co/legal/privacy-policy
+- type: Compliance
+  url: https://www.payem.co/legal/security-and-compliance
+- type: Integrations
+  url: https://www.payem.co/product/integrations
+- type: WellKnown
+  url: well-known/payem-well-known.yml
+- type: LLMsTxt
+  url: llms/payem-llms.txt
+- type: Conformance
+  url: conformance/payem-conformance.yml
+- type: Lifecycle
+  url: lifecycle/payem-lifecycle.yml
+- type: DomainSecurity
+  url: security/payem-domain-security.yml
+- type: Packages
+  url: packages/payem-packages.yml
+- type: Plans
+  url: plans/payem-plans-pricing.yml
+
+x-enrichment:
+  date: '2026-08-26'
+  status: enriched
+  artifacts_added: 22
+  pass: local-v1

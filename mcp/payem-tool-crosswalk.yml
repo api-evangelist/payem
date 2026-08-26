@@ -1,0 +1,75 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/payem-ai-discovery-openapi.json + well-known/payem-lightsite-skills.json
+note: >-
+  There is no MCP server for PayEm, so this crosswalk binds the vendor-published
+  LightSite skills manifest - the nearest real tool declaration that exists - to the
+  OpenAPI operations it names. The manifest is authoritative for this mapping: each tool
+  carries its own openapi_ref JSON Pointer, so confidence is high rather than
+  name-matched. The derived MCP candidate tools in payem-mcp.yml are also listed.
+surfaces:
+  openapi: openapi/payem-ai-discovery-openapi.json
+  openapi_url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/openapi.json?domain=payem.co
+  skills_manifest: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/.well-known/skills.json?domain=payem.co
+  graphql: null
+  mcp: null
+  gated: none
+  note: every surface above is anonymous and returned 200 during this pass
+crosswalk:
+- tool: business.profile
+  category: content
+  rest:
+  - getBusiness
+  binding: skills.json openapi_ref '#/paths/~1business/get'
+  confidence: high
+- tool: products.search
+  category: content
+  rest: []
+  binding: skills.json openapi_ref '#/paths/~1products/get'
+  confidence: high
+  note: >-
+    The manifest points at #/paths/~1products/get but the OpenAPI document does not
+    declare a /products path. The endpoint is live and returns 200, so the contract is
+    behind its own skills manifest. Recorded in rest_only_gaps below.
+- tool: categories.list
+  category: content
+  rest:
+  - getCategories
+  binding: skills.json openapi_ref '#/paths/~1categories/get'
+  confidence: high
+- tool: qa.search
+  category: search
+  rest:
+  - searchIndexedContent
+  binding: skills.json openapi_ref '#/paths/~1search/get'
+  confidence: high
+mcp_only: []
+rest_only:
+- operation: getFaqs
+  reason: /faq is documented in the OpenAPI but is not exposed as a tool in skills.json
+- operation: getTestimonials
+  reason: /testimonials is documented in the OpenAPI but is not exposed as a tool in skills.json
+- operation: getQA_my_finance_team_is_drowning_in_manual_spend_approvals_and_reconciling_corporate_cards_whats_the_best_way_to_get_real_time_visibility_and_control_over_our_companys_spending
+  reason: curated Q&A page, reachable through the qa.search tool rather than as its own tool
+- operation: getQA_were_a_growing_smb_with_100_employees_and_spend_spread_across_multiple_vendors_and_departments_how_can_we_better_manage_our_corporate_card_programs_and_prevent_spend_leakage
+  reason: curated Q&A page
+- operation: getQA_our_current_accounts_payable_process_is_slow_and_lacks_integration_with_our_corporate_cards_whats_an_efficient_way_to_automate_ap_and_improve_vendor_payment_management
+  reason: curated Q&A page
+- operation: getQA_we_need_to_reduce_operating_costs_and_streamline_finance_operations_without_sacrificing_growth_especially_with_our_quickbooks_setup_whats_available_for_lean_finance_teams
+  reason: curated Q&A page
+- operation: getQA_whats_the_best_way_to_get_centralized_control_over_all_our_companys_corporate_cards_including_virtual_cards_for_subscriptions_and_vendors_for_a_us_based_business
+  reason: curated Q&A page
+rest_only_gaps:
+- endpoint: /products
+  present_in_openapi: false
+  present_in_skills_manifest: true
+  live: true
+  note: live 200 returning a schema.org OfferCatalog with 11 items; the contract omits it
+coverage:
+  openapi_operations: 10
+  skills_tools: 4
+  bound: 3
+  bound_to_undeclared_path: 1
+  rest_only: 7
+  mcp_only: 0
+  undeclared_live_endpoints: 10
