@@ -35,23 +35,16 @@ tags:
 - FinTech
 - ERP Integration
 apis:
-- name: Payem AI Discovery API
-  description: >-
-    A read-only, unauthenticated AI-discovery content API published for Payem by
-    LightSite.ai. It exposes Payem's own marketing and knowledge content - business
-    profile, product catalog, categories, testimonials, FAQ, curated Q&A pages and a
-    semantic search endpoint - as OpenAPI 3.1 operations returning schema.org JSON-LD.
-    This is NOT the PayEm product API: it cannot issue a card, create a request, post an
-    invoice or read a ledger. PayEm ships no public product API.
+- aid: payem:payem-ai-discovery-api
+  name: Payem AI Discovery API
+  description: The AI Discovery API from Payem — 1 operation(s) for ai discovery.
   humanURL: https://www.payem.co/
   baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
   tags:
   - AI Discovery
-  - Content
-  - Search
   properties:
   - type: OpenAPI
-    url: openapi/payem-ai-discovery-openapi.json
+    url: openapi/payem-ai-discovery-api-openapi.yml
   - type: JSONLD
     url: json-ld/payem-organization.jsonld
   - type: Authentication
@@ -62,12 +55,152 @@ apis:
     url: conventions/payem-conventions.yml
   - type: DataModel
     url: data-model/payem-data-model.yml
-  - type: Overlay
-    url: overlays/payem-ai-discovery-overlay.yaml
   - type: RateLimits
     url: rate-limits/payem-rate-limits.yml
-  - type: MCPServer
-    url: mcp/payem-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/payem-tool-crosswalk.yml
+- aid: payem:payem-business-api
+  name: Payem Business API
+  description: The Business API from Payem — 1 operation(s) for business.
+  humanURL: https://www.payem.co/
+  baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  tags:
+  - Business
+  properties:
+  - type: OpenAPI
+    url: openapi/payem-business-api-openapi.yml
+  - type: JSONLD
+    url: json-ld/payem-organization.jsonld
+  - type: Authentication
+    url: authentication/payem-authentication.yml
+  - type: ErrorCatalog
+    url: errors/payem-problem-types.yml
+  - type: Conventions
+    url: conventions/payem-conventions.yml
+  - type: DataModel
+    url: data-model/payem-data-model.yml
+  - type: RateLimits
+    url: rate-limits/payem-rate-limits.yml
+  - type: ToolCrosswalk
+    url: mcp/payem-tool-crosswalk.yml
+- aid: payem:payem-categories-api
+  name: Payem Categories API
+  description: The Categories API from Payem — 1 operation(s) for categories.
+  humanURL: https://www.payem.co/
+  baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/payem-categories-api-openapi.yml
+  - type: JSONLD
+    url: json-ld/payem-organization.jsonld
+  - type: Authentication
+    url: authentication/payem-authentication.yml
+  - type: ErrorCatalog
+    url: errors/payem-problem-types.yml
+  - type: Conventions
+    url: conventions/payem-conventions.yml
+  - type: DataModel
+    url: data-model/payem-data-model.yml
+  - type: RateLimits
+    url: rate-limits/payem-rate-limits.yml
+  - type: ToolCrosswalk
+    url: mcp/payem-tool-crosswalk.yml
+- aid: payem:payem-faq-api
+  name: Payem Faq API
+  description: The Faq API from Payem — 1 operation(s) for faq.
+  humanURL: https://www.payem.co/
+  baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  tags:
+  - Faq
+  properties:
+  - type: OpenAPI
+    url: openapi/payem-faq-api-openapi.yml
+  - type: JSONLD
+    url: json-ld/payem-organization.jsonld
+  - type: Authentication
+    url: authentication/payem-authentication.yml
+  - type: ErrorCatalog
+    url: errors/payem-problem-types.yml
+  - type: Conventions
+    url: conventions/payem-conventions.yml
+  - type: DataModel
+    url: data-model/payem-data-model.yml
+  - type: RateLimits
+    url: rate-limits/payem-rate-limits.yml
+  - type: ToolCrosswalk
+    url: mcp/payem-tool-crosswalk.yml
+- aid: payem:payem-qa-api
+  name: Payem Qa API
+  description: The Qa API from Payem — 5 operation(s) for qa.
+  humanURL: https://www.payem.co/
+  baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  tags:
+  - Qa
+  properties:
+  - type: OpenAPI
+    url: openapi/payem-qa-api-openapi.yml
+  - type: JSONLD
+    url: json-ld/payem-organization.jsonld
+  - type: Authentication
+    url: authentication/payem-authentication.yml
+  - type: ErrorCatalog
+    url: errors/payem-problem-types.yml
+  - type: Conventions
+    url: conventions/payem-conventions.yml
+  - type: DataModel
+    url: data-model/payem-data-model.yml
+  - type: RateLimits
+    url: rate-limits/payem-rate-limits.yml
+  - type: ToolCrosswalk
+    url: mcp/payem-tool-crosswalk.yml
+- aid: payem:payem-search-api
+  name: Payem Search API
+  description: The Search API from Payem — 1 operation(s) for search.
+  humanURL: https://www.payem.co/
+  baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/payem-search-api-openapi.yml
+  - type: JSONLD
+    url: json-ld/payem-organization.jsonld
+  - type: Authentication
+    url: authentication/payem-authentication.yml
+  - type: ErrorCatalog
+    url: errors/payem-problem-types.yml
+  - type: Conventions
+    url: conventions/payem-conventions.yml
+  - type: DataModel
+    url: data-model/payem-data-model.yml
+  - type: RateLimits
+    url: rate-limits/payem-rate-limits.yml
+  - type: ToolCrosswalk
+    url: mcp/payem-tool-crosswalk.yml
+- aid: payem:payem-testimonials-api
+  name: Payem Testimonials API
+  description: The Testimonials API from Payem — 1 operation(s) for testimonials.
+  humanURL: https://www.payem.co/
+  baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  tags:
+  - Testimonials
+  properties:
+  - type: OpenAPI
+    url: openapi/payem-testimonials-api-openapi.yml
+  - type: JSONLD
+    url: json-ld/payem-organization.jsonld
+  - type: Authentication
+    url: authentication/payem-authentication.yml
+  - type: ErrorCatalog
+    url: errors/payem-problem-types.yml
+  - type: Conventions
+    url: conventions/payem-conventions.yml
+  - type: DataModel
+    url: data-model/payem-data-model.yml
+  - type: RateLimits
+    url: rate-limits/payem-rate-limits.yml
   - type: ToolCrosswalk
     url: mcp/payem-tool-crosswalk.yml
 maintainers:
@@ -76,6 +209,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/payem-ai-discovery-overlay.yaml
+- type: MCPServer
+  url: mcp/payem-mcp.yml
 - type: TrustCenter
   url: security/payem-trust-center.yml
 - type: Website
