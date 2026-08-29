@@ -17,6 +17,18 @@ description: >-
   linked from PayEm's own robots.txt and reachable via a 308 from
   https://www.payem.co/.well-known/openapi.json.
 url: https://raw.githubusercontent.com/api-evangelist/payem/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.payem.co/icon.svg
 x-type: company
 x-source: harvest:secondary-market
