@@ -1,0 +1,56 @@
+openapi: 3.2.0
+info:
+  title: Payem AI Discovery Faq API
+  description: Comprehensive AI-optimized API for Payem. Access products, services, FAQs, and business intelligence through structured endpoints with Schema.org markup.
+  version: v2.2.4
+  summary: AI-optimized API for discovering Payem products and services
+  license:
+    name: CC-BY-4.0
+    identifier: CC-BY-4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+  contact:
+    name: Payem
+    email: contact@payem.co
+    url: https://payem.co
+servers:
+- url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  description: AI Discovery API Server (October 2025)
+  variables:
+    domain:
+      default: payem.co
+      description: Client domain for API requests
+tags:
+- name: Faq
+paths:
+  /faq:
+    get:
+      summary: Get frequently asked questions for Payem
+      operationId: getFaqs
+      responses:
+        '200':
+          description: Frequently asked questions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    question:
+                      type: string
+                    answer:
+                      type: string
+      tags:
+      - Faq
+x-perplexity-optimized: true
+x-claude-compatible: true
+x-openai-compatible: true
+x-google-sge: true
+x-ai-discovery:
+  version: 3.0.0
+  features:
+  - structured_data
+  - json_ld
+  - schema_org
+  - sge_optimized
+  last_updated: '2026-08-26'

@@ -1,0 +1,131 @@
+openapi: 3.2.0
+info:
+  title: Payem AI Discovery API
+  description: Comprehensive AI-optimized API for Payem. Access products, services, FAQs, and business intelligence through structured endpoints with Schema.org markup.
+  version: v2.2.4
+  summary: AI-optimized API for discovering Payem products and services
+  license:
+    name: CC-BY-4.0
+    identifier: CC-BY-4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+  contact:
+    name: Payem
+    email: contact@payem.co
+    url: https://payem.co
+servers:
+- url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+  description: AI Discovery API Server (October 2025)
+  variables:
+    domain:
+      default: payem.co
+      description: Client domain for API requests
+tags:
+- name: AI Discovery
+paths:
+  /search:
+    get:
+      summary: Semantic search across indexed business content
+      description: Search through curated Q&As, business information, and product data using natural language queries. Returns AI-optimized results with Schema.org markup.
+      operationId: searchIndexedContent
+      tags:
+      - AI Discovery
+      parameters:
+      - name: domain
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Business domain to search
+        example: vcita.com
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Natural language search query
+        example: scheduling software features
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 50
+        description: Maximum number of results to return
+      responses:
+        '200':
+          description: Search results with semantic relevance scoring
+          content:
+            text/html:
+              schema:
+                type: string
+                description: HTML page with embedded JSON-LD Schema.org markup containing search results
+            application/json:
+              schema:
+                type: object
+                properties:
+                  query:
+                    type: string
+                    description: Original search query
+                  resultsCount:
+                    type: integer
+                    description: Number of results found
+                  results:
+                    type: array
+                    description: Ranked search results
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Result title
+                        type:
+                          type: string
+                          enum:
+                          - qa
+                          - business_info
+                          - product
+                          - testimonial
+                          description: Type of content
+                        relevance_score:
+                          type: number
+                          description: Semantic relevance score (0-100)
+                        description:
+                          type: string
+                          description: Content snippet or summary
+                        url:
+                          type: string
+                          format: uri
+                          description: URL to full content (if available)
+                  search_context:
+                    type: object
+                    description: Additional context about the search
+                    properties:
+                      business_name:
+                        type: string
+                      total_indexed_content:
+                        type: integer
+        '400':
+          description: Missing required query parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  usage:
+                    type: string
+x-perplexity-optimized: true
+x-claude-compatible: true
+x-openai-compatible: true
+x-google-sge: true
+x-ai-discovery:
+  version: 3.0.0
+  features:
+  - structured_data
+  - json_ld
+  - schema_org
+  - sge_optimized
+  last_updated: '2026-08-26'
