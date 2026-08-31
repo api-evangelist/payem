@@ -44,6 +44,17 @@ tags:
 - Expense Management
 - Financial Operations
 - Invoice Processing
+- Fintech
+- ERP Integration
+tags_raw:
+- Company
+- Spend Management
+- Procurement
+- Accounts Payable
+- Corporate Cards
+- Expense Management
+- Financial Operations
+- Invoice Processing
 - FinTech
 - ERP Integration
 apis:
@@ -125,6 +136,8 @@ apis:
   humanURL: https://www.payem.co/
   baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
   tags:
+  - FAQ
+  tags_raw:
   - Faq
   properties:
   - type: OpenAPI
@@ -149,6 +162,8 @@ apis:
   humanURL: https://www.payem.co/
   baseURL: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
   tags:
+  - QA
+  tags_raw:
   - Qa
   properties:
   - type: OpenAPI
