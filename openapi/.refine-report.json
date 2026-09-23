@@ -1,0 +1,48 @@
+{
+  "provider": "payem",
+  "sources": [
+    "_original/payem-ai-discovery-openapi.json"
+  ],
+  "outputs": [
+    "payem-ai-discovery-api-openapi.yml",
+    "payem-business-api-openapi.yml",
+    "payem-categories-api-openapi.yml",
+    "payem-faq-api-openapi.yml",
+    "payem-qa-api-openapi.yml",
+    "payem-search-api-openapi.yml",
+    "payem-testimonials-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "payem-ai-discovery-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "payem-ai-discovery-openapi.json: tagged paths GET /business -> Business",
+    "payem-ai-discovery-openapi.json: tagged paths GET /testimonials -> Testimonials",
+    "payem-ai-discovery-openapi.json: tagged paths GET /categories -> Categories",
+    "payem-ai-discovery-openapi.json: tagged paths GET /faq -> Faq",
+    "payem-ai-discovery-openapi.json: tagged paths GET /qa/my-finance-team-is-drowning-in-manual-spend-approvals-and-reconciling-corporate-cards-whats-the-best-way-to-get-real-time-visibility-and-control-over-our-companys-spending -> Qa",
+    "payem-ai-discovery-openapi.json: tagged paths GET /qa/were-a-growing-smb-with-100-employees-and-spend-spread-across-multiple-vendors-and-departments-how-can-we-better-manage-our-corporate-card-programs-and-prevent-spend-leakage -> Qa",
+    "payem-ai-discovery-openapi.json: tagged paths GET /qa/our-current-accounts-payable-process-is-slow-and-lacks-integration-with-our-corporate-cards-whats-an-efficient-way-to-automate-ap-and-improve-vendor-payment-management -> Qa",
+    "payem-ai-discovery-openapi.json: tagged paths GET /qa/we-need-to-reduce-operating-costs-and-streamline-finance-operations-without-sacrificing-growth-especially-with-our-quickbooks-setup-whats-available-for-lean-finance-teams -> Qa",
+    "payem-ai-discovery-openapi.json: tagged paths GET /qa/whats-the-best-way-to-get-centralized-control-over-all-our-companys-corporate-cards-including-virtual-cards-for-subscriptions-and-vendors-for-a-us-based-business -> Qa",
+    "payem-ai-discovery-openapi.json: declared missing tag: AI Discovery",
+    "payem-ai-discovery-openapi.json: declared missing tag: Business",
+    "payem-ai-discovery-openapi.json: declared missing tag: Categories",
+    "payem-ai-discovery-openapi.json: declared missing tag: Faq",
+    "payem-ai-discovery-openapi.json: declared missing tag: Qa",
+    "payem-ai-discovery-openapi.json: declared missing tag: Search",
+    "payem-ai-discovery-openapi.json: declared missing tag: Testimonials",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "payem-ai-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "payem-business-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "payem-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "payem-faq-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "payem-qa-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "payem-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "payem-testimonials-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}

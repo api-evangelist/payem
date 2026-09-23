@@ -20,7 +20,7 @@ servers:
       default: payem.co
       description: Client domain for API requests
 tags:
-- name: Faq
+- name: FAQ
 paths:
   /faq:
     get:
@@ -41,7 +41,7 @@ paths:
                     answer:
                       type: string
       tags:
-      - Faq
+      - FAQ
 x-perplexity-optimized: true
 x-claude-compatible: true
 x-openai-compatible: true
