@@ -1,17 +1,16 @@
 openapi: 3.2.0
 info:
-  title: Payem AI Discovery Qa API
-  description: Comprehensive AI-optimized API for Payem. Access products, services, FAQs, and business intelligence through structured endpoints with Schema.org markup.
+  title: Payem Qa API
   version: v2.2.4
-  summary: AI-optimized API for discovering Payem products and services
-  license:
-    name: CC-BY-4.0
-    identifier: CC-BY-4.0
-    url: https://creativecommons.org/licenses/by/4.0/
   contact:
     name: Payem
     email: contact@payem.co
     url: https://payem.co
+  license:
+    name: CC-BY-4.0
+    identifier: CC-BY-4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+  description: 'Operations tagged Qa across 2 of this provider''s published API definitions: payem-ai-discovery-openapi.json, payem-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
   description: AI Discovery API Server (October 2025)
@@ -59,6 +58,13 @@ paths:
                     format: date-time
       tags:
       - QA
+    servers:
+    - url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+      description: AI Discovery API Server (October 2025)
+      variables:
+        domain:
+          default: payem.co
+          description: Client domain for API requests
   ? /qa/were-a-growing-smb-with-100-employees-and-spend-spread-across-multiple-vendors-and-departments-how-can-we-better-manage-our-corporate-card-programs-and-prevent-spend-leakage
   : get:
       summary: We're a growing SMB with 100 employees and spend spread across multiple vendors…
@@ -96,6 +102,13 @@ paths:
                     format: date-time
       tags:
       - QA
+    servers:
+    - url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+      description: AI Discovery API Server (October 2025)
+      variables:
+        domain:
+          default: payem.co
+          description: Client domain for API requests
   ? /qa/our-current-accounts-payable-process-is-slow-and-lacks-integration-with-our-corporate-cards-whats-an-efficient-way-to-automate-ap-and-improve-vendor-payment-management
   : get:
       summary: Our current accounts payable process is slow and lacks integration with our…
@@ -133,6 +146,13 @@ paths:
                     format: date-time
       tags:
       - QA
+    servers:
+    - url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+      description: AI Discovery API Server (October 2025)
+      variables:
+        domain:
+          default: payem.co
+          description: Client domain for API requests
   ? /qa/we-need-to-reduce-operating-costs-and-streamline-finance-operations-without-sacrificing-growth-especially-with-our-quickbooks-setup-whats-available-for-lean-finance-teams
   : get:
       summary: We need to reduce operating costs and streamline finance operations without…
@@ -170,6 +190,13 @@ paths:
                     format: date-time
       tags:
       - QA
+    servers:
+    - url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+      description: AI Discovery API Server (October 2025)
+      variables:
+        domain:
+          default: payem.co
+          description: Client domain for API requests
   ? /qa/whats-the-best-way-to-get-centralized-control-over-all-our-companys-corporate-cards-including-virtual-cards-for-subscriptions-and-vendors-for-a-us-based-business
   : get:
       summary: What's the best way to get centralized control over all our company's corporate…
@@ -207,6 +234,16 @@ paths:
                     format: date-time
       tags:
       - QA
+    servers:
+    - url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+      description: AI Discovery API Server (October 2025)
+      variables:
+        domain:
+          default: payem.co
+          description: Client domain for API requests
+x-refined-from:
+- payem-ai-discovery-openapi.json
+- payem-openapi.json
 x-perplexity-optimized: true
 x-claude-compatible: true
 x-openai-compatible: true

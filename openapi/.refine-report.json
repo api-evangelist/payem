@@ -1,7 +1,8 @@
 {
   "provider": "payem",
   "sources": [
-    "_original/payem-ai-discovery-openapi.json"
+    "_original/payem-ai-discovery-openapi.json",
+    "well-known/payem-openapi.json"
   ],
   "outputs": [
     "payem-ai-discovery-api-openapi.yml",
@@ -12,11 +13,14 @@
     "payem-search-api-openapi.yml",
     "payem-testimonials-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "archived well-known/payem-openapi.json"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "discovered stray spec: well-known/payem-openapi.json",
     "payem-ai-discovery-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "payem-ai-discovery-openapi.json: tagged paths GET /business -> Business",
     "payem-ai-discovery-openapi.json: tagged paths GET /testimonials -> Testimonials",
@@ -34,6 +38,30 @@
     "payem-ai-discovery-openapi.json: declared missing tag: Qa",
     "payem-ai-discovery-openapi.json: declared missing tag: Search",
     "payem-ai-discovery-openapi.json: declared missing tag: Testimonials",
+    "payem-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "payem-openapi.json: tagged paths GET /business -> Business",
+    "payem-openapi.json: tagged paths GET /testimonials -> Testimonials",
+    "payem-openapi.json: tagged paths GET /categories -> Categories",
+    "payem-openapi.json: tagged paths GET /faq -> Faq",
+    "payem-openapi.json: tagged paths GET /qa/my-finance-team-is-drowning-in-manual-spend-approvals-and-reconciling-corporate-cards-whats-the-best-way-to-get-real-time-visibility-and-control-over-our-companys-spending -> Qa",
+    "payem-openapi.json: tagged paths GET /qa/were-a-growing-smb-with-100-employees-and-spend-spread-across-multiple-vendors-and-departments-how-can-we-better-manage-our-corporate-card-programs-and-prevent-spend-leakage -> Qa",
+    "payem-openapi.json: tagged paths GET /qa/our-current-accounts-payable-process-is-slow-and-lacks-integration-with-our-corporate-cards-whats-an-efficient-way-to-automate-ap-and-improve-vendor-payment-management -> Qa",
+    "payem-openapi.json: tagged paths GET /qa/we-need-to-reduce-operating-costs-and-streamline-finance-operations-without-sacrificing-growth-especially-with-our-quickbooks-setup-whats-available-for-lean-finance-teams -> Qa",
+    "payem-openapi.json: tagged paths GET /qa/whats-the-best-way-to-get-centralized-control-over-all-our-companys-corporate-cards-including-virtual-cards-for-subscriptions-and-vendors-for-a-us-based-business -> Qa",
+    "payem-openapi.json: declared missing tag: AI Discovery",
+    "payem-openapi.json: declared missing tag: Business",
+    "payem-openapi.json: declared missing tag: Categories",
+    "payem-openapi.json: declared missing tag: Faq",
+    "payem-openapi.json: declared missing tag: Qa",
+    "payem-openapi.json: declared missing tag: Search",
+    "payem-openapi.json: declared missing tag: Testimonials",
+    "tag 'AI Discovery' spans 2 source specs (payem-ai-discovery-openapi.json, payem-openapi.json): per-path servers applied",
+    "tag 'Business' spans 2 source specs (payem-ai-discovery-openapi.json, payem-openapi.json): per-path servers applied",
+    "tag 'Categories' spans 2 source specs (payem-ai-discovery-openapi.json, payem-openapi.json): per-path servers applied",
+    "tag 'Faq' spans 2 source specs (payem-ai-discovery-openapi.json, payem-openapi.json): per-path servers applied",
+    "tag 'Qa' spans 2 source specs (payem-ai-discovery-openapi.json, payem-openapi.json): per-path servers applied",
+    "tag 'Search' spans 2 source specs (payem-ai-discovery-openapi.json, payem-openapi.json): per-path servers applied",
+    "tag 'Testimonials' spans 2 source specs (payem-ai-discovery-openapi.json, payem-openapi.json): per-path servers applied",
     "apis.yml register: already-registered"
   ],
   "skipped": [
