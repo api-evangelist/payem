@@ -1,17 +1,16 @@
 openapi: 3.2.0
 info:
-  title: Payem AI Discovery Categories API
-  description: Comprehensive AI-optimized API for Payem. Access products, services, FAQs, and business intelligence through structured endpoints with Schema.org markup.
+  title: Payem Categories API
   version: v2.2.4
-  summary: AI-optimized API for discovering Payem products and services
-  license:
-    name: CC-BY-4.0
-    identifier: CC-BY-4.0
-    url: https://creativecommons.org/licenses/by/4.0/
   contact:
     name: Payem
     email: contact@payem.co
     url: https://payem.co
+  license:
+    name: CC-BY-4.0
+    identifier: CC-BY-4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+  description: 'Operations tagged Categories across 2 of this provider''s published API definitions: payem-ai-discovery-openapi.json, payem-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
   description: AI Discovery API Server (October 2025)
@@ -44,6 +43,16 @@ paths:
                       type: integer
       tags:
       - Categories
+    servers:
+    - url: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public
+      description: AI Discovery API Server (October 2025)
+      variables:
+        domain:
+          default: payem.co
+          description: Client domain for API requests
+x-refined-from:
+- payem-ai-discovery-openapi.json
+- payem-openapi.json
 x-perplexity-optimized: true
 x-claude-compatible: true
 x-openai-compatible: true
