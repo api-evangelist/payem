@@ -1,0 +1,12 @@
+{
+ "url": "https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/openapi.json?domain=payem.co",
+ "requested_url": "https://www.payem.co/.well-known/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 27758,
+ "sha256": "1880f43a91ea8f43f7f3b00ad4f24df9dc77528d2d7af760a80a3949491382a2",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
