@@ -250,6 +250,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: RateLimits
+  url: rate-limits/payem-rate-limits.yml
 - type: Overlay
   url: overlays/payem-ai-discovery-overlay.yaml
 - type: X-MCPServerCandidate
