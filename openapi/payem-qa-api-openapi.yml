@@ -219,3 +219,9 @@ x-ai-discovery:
   - schema_org
   - sge_optimized
   last_updated: '2026-08-26'
+x-provenance:
+  method: harvested
+  publisher: Payem
+  source: https://api.llm-discovery-api.com/functions/v1/llm-discovery/public/openapi.json?domain=payem.co
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
