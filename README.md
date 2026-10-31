@@ -64,5 +64,129 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Payem is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/payem_stock/
+PayEm is a global spend management and procurement platform that automates the request-to-reconciliation process for finance, procurement, HR and operations teams. The product covers intake requests and agile approval workflows, virtual and physical corporate cards (including an American Express program), AP automation with AI/OCR invoice processing, purchase-order creation and matching, vendor onboarding, budget control, expense tracking, multi-subsidiary management, cross-border payments, real-time reconciliation and an audit trail, with native connectors into NetSuite, QuickBooks Online, Priority ERP, Xero, HRIS systems, TravelPerk and Slack. Founded in 2019 and operating from San Francisco and Tel Aviv, PayEm holds SOC 1 and SOC 2 Type II attestations audited by EY. PayEm publishes no public developer program - no developer portal, API reference, SDK, webhook catalog or machine-readable product contract is reachable without a sales conversation. The only machine-readable contract served from payem.co is an AI-discovery content API operated on PayEm's behalf by LightSite.ai, linked from PayEm's own robots.txt and reachable via a 308 from https://www.payem.co/.well-known/openapi.json.
+
+**Areas:** Company · Spend Management · Procurement · Accounts Payable · Corporate Cards · Expense Management · Financial Operations · Invoice Processing · Fintech · ERP Integration
+
+## Payem on APIs.io
+
+Everything profiled for Payem is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/payem/](https://apis.io/providers/payem/)** — or go straight to one of the APIs or properties below.
+
+### APIs (7)
+
+- [Payem AI Discovery API](https://apis.io/apis/payem/payem-ai-discovery-api/) — The AI Discovery API from Payem — 1 operation(s) for ai discovery.
+- [Payem Business API](https://apis.io/apis/payem/payem-business-api/) — The Business API from Payem — 1 operation(s) for business.
+- [Payem Categories API](https://apis.io/apis/payem/payem-categories-api/) — The Categories API from Payem — 1 operation(s) for categories.
+- [Payem Faq API](https://apis.io/apis/payem/payem-faq-api/) — The Faq API from Payem — 1 operation(s) for faq.
+- [Payem Qa API](https://apis.io/apis/payem/payem-qa-api/) — The Qa API from Payem — 5 operation(s) for qa.
+- [Payem Search API](https://apis.io/apis/payem/payem-search-api/) — The Search API from Payem — 1 operation(s) for search.
+- [Payem Testimonials API](https://apis.io/apis/payem/payem-testimonials-api/) — The Testimonials API from Payem — 1 operation(s) for testimonials.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [payem](https://apis.io/servers/payem/payem/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Payem Organization Context](https://apis.io/jsonld/payem/payem-organization/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Payem Ai Discovery Overlay](https://apis.io/overlays/payem/payem-ai-discovery-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Payem Authentication](https://apis.io/security/payem/payem-authentication/)
+- [Payem Domain Security](https://apis.io/security/payem/payem-domain-security/)
+- [Payem Trust Center](https://apis.io/security/payem/payem-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Payem Plans Pricing](https://apis.io/plans/payem/payem-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Payem Rate Limits](https://apis.io/rate-limits/payem/payem-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.payem.co/)
+- [Sign up](https://www.payem.co/lp/personalized-demo)
+- [Support](https://www.payem.co/contact)
+- [Blog](https://www.payem.co/blog)
+- [Compliance](https://www.payem.co/legal/security-and-compliance)
+- [Terms of service](https://www.payem.co/legal/terms-of-service)
+- [Privacy policy](https://www.payem.co/legal/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 39.1** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 47.7 |
+| Contract governance | 18.2 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 50.0 |
+
+**Agent readiness 25.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 26.8** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/payem/](https://apis.io/providers/payem/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Payem: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/payem/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
